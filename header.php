@@ -15,10 +15,15 @@
 <body>
 
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-    <h5 class="my-0 mr-md-auto font-weight-normal">
-        <?php bloginfo('name'); ?>
-        <span><?php bloginfo('description'); ?></span>
-    </h5>
+    
+    <?php if ( function_exists( 'the_custom_logo' ) ) : ?>
+        <?php the_custom_logo(); ?>
+    <?php else :?>
+        <h5 class="my-0 mr-md-auto font-weight-normal">
+            <?php bloginfo('name'); ?>
+            <span><?php bloginfo('description'); ?></span>
+        </h5>
+    <?php endif;?>
 
     <?php 
         if ( function_exists('clean_custom_menus' ) ){
