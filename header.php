@@ -11,6 +11,13 @@
 <body>
 <div id="corpo">
     <div id="header">
+
+        <?php 
+            if ( function_exists( 'the_custom_logo' ) ) {
+                the_custom_logo();
+            }
+        ?>
+
         <h1><?php bloginfo('name'); ?></h1>
         <h2><?php bloginfo('description'); ?></h2>
  

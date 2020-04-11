@@ -1,6 +1,12 @@
     <div id="footer">
-        <p>&copy; 2012 - Todos os Direitos Reservados</p>
+        
+        <!-- FOOTER -->
+        <?php dynamic_sidebar('footer'); ?>
+
+        <p>&copy; 2020 - CoreDesignz - Todos os Direitos Reservados</p>
+        
         <?php wp_footer(); ?>
+        
     </div>
      
 </div>
