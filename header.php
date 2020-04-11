@@ -16,14 +16,16 @@
 
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
     
-    <?php if ( function_exists( 'the_custom_logo' ) ) : ?>
-        <?php the_custom_logo(); ?>
-    <?php else :?>
-        <h5 class="my-0 mr-md-auto font-weight-normal">
-            <?php bloginfo('name'); ?>
-            <span><?php bloginfo('description'); ?></span>
-        </h5>
-    <?php endif;?>
+    <div class="my-0 mr-md-auto font-weight-normal">
+        <?php if ( function_exists( 'the_custom_logo' ) ) : ?>
+            <?php the_custom_logo(); ?>
+        <?php else :?>
+            <h5 class="">
+                <?php bloginfo('name'); ?>
+                <span><?php bloginfo('description'); ?></span>
+            </h5>
+        <?php endif;?>
+    </div>
 
     <?php 
         if ( function_exists('clean_custom_menus' ) ){
@@ -37,19 +39,5 @@
 
 </div>
 
-<div id="corpo">
-    <div id="header">
-
-        <?php 
-            if ( function_exists( 'the_custom_logo' ) ) {
-                the_custom_logo();
-            }
-        ?>
-
-        <h1><?php bloginfo('name'); ?></h1>
-        <h2><?php bloginfo('description'); ?></h2>
- 
-        <ul id="nav">
-            <?php wp_list_cats('sort_column=name'); ?>
-        </ul>
-    </div>
+<main role="main" class="container">
+  <div class="row">
