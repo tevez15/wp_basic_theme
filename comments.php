@@ -33,31 +33,41 @@
     <?php if ( comments_open() ) : ?>
  
     <div id="respond">
-            <h3>Deixe o seu comentário!</h3>
+        <h3>Deixe o seu comentário!</h3>
  
-            <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
+        <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
             <fieldset>
                 <?php if ( $user_ID ) : ?>
- 
-                <p>Autentificado como <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(); ?>" title="Sair desta conta">Sair desta conta &raquo;</a></p>
+                
+                <div>
+                <p>Autentificado como <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. </p>
+                <p><a href="<?php echo wp_logout_url(); ?>" title="Sair desta conta">Sair desta conta &raquo;</a></p>    
+                </div>
+                
  
                 <?php else : ?>
- 
-                <label for="author">Nome:</label>
-                <input type="text" name="author" id="author" value="<?php echo $comment_author; ?>" />
- 
-                <label for="email">Email:</label>
-                <input type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" />
- 
-                <label for="url">Website:</label>
-                <input type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" />
- 
+                <div class="form-group form-check">
+                    <label for="author">Nome:</label>
+                    <input class="form-control" type="text" name="author" id="author" value="<?php echo $comment_author; ?>" />
+                </div>
+                
+                <div class="form-group form-check">
+                    <label for="email">Email:</label>
+                    <input class="form-control" type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" />
+                </div>
+                
+                <div class="form-group form-check">
+                    <label for="url">Website:</label>
+                    <input class="form-control" type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" />
+                </div>
                 <?php endif; ?>
- 
-                <label for="comment">Mensagem:</label>
-                <textarea name="comment" id="comment" rows="" cols=""></textarea>
- 
-                <input type="submit" class="commentsubmit" value="Enviar Comentário" />
+                    
+                <div class="form-group form-check">
+                    <label for="comment">Mensagem:</label>
+                    <textarea class="form-control" name="comment" id="comment" rows="" cols=""></textarea>
+                </div>        
+            
+                <button type="submit" class="btn btn-primary">Enviar Comentário</button>
  
                 <?php comment_id_fields(); ?>
                 <?php do_action('comment_form', $post->ID); ?>
